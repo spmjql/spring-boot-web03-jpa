@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:insert="~{common/common::header}" />
+	<h1>메모장</h1>
+	<div>
+		<form action="/memo" method="post">
+			<textarea name="memoContent" rows="3" cols="80" placeholder="메모를 입력하세요"></textarea>
+			<button type="submit">입력</button>
+			
+		</form>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<th:block th:insert="~{common/common::footer}" />
+
+</body>
+</html>

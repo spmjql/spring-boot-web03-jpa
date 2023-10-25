@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:insert="~{common/common::header}" />
+	<main>
+		<h1>회원가입페이지</h1>
+		<div class="wrap">
+			<form action="/signup" method="post">
+				<p><input type="text" name="username" placeholder="아이디"></p>
+				<p><input type="password" name="pass" placeholder="비밀번호"></p>
+				<p><input type="text" name="name" placeholder="이름"></p>
+				<p><input type="submit" value="회원가입"></p>
+			</form>
+		</div>
+	</main>
+	<th:block th:insert="~{common/common::footer}" />
+</body>
+</html>

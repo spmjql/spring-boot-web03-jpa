@@ -28,7 +28,7 @@ public class MemberEntity {
 	@Id @GeneratedValue(generator = "gen_seq_mem", strategy = GenerationType.SEQUENCE)
 	private long no;
 	@Column (nullable = false, unique = true)
-	private String id;
+	private String username;
 	@Column (nullable = false)
 	private String pass;
 	@Column (nullable = false)
