@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.nowon.domain.dto.MemoListDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,11 +31,16 @@ import lombok.NoArgsConstructor;
 public class MemoEntity {
 
 	@Id @GeneratedValue(generator = "gen_seq_memo", strategy = GenerationType.SEQUENCE)
-	long no;
+	private long no;
 	@Column (columnDefinition = "clob not null")
-	String content;
+	private String content;
 	@CreationTimestamp
-	LocalDateTime createdDate;
+	private LocalDateTime createdDate;
 	@UpdateTimestamp
-	LocalDateTime updateDate;
+	private LocalDateTime updateDate;
+	
+	public MemoListDTO toMemoListDTO() {
+		return MemoListDTO.builder().
+				no(no).content(content).createdDate(createdDate).build();
+	}
 }

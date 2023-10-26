@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -17,7 +17,18 @@
 	<div>
 		<table>
 			<tr>
-				<td></td>
+				<td>메모번호</td>
+				<td>내용</td>
+				<td>작성시간</td>
+			</tr>
+			<tr th:each ="dto:${list}">
+				<td th:text="${dto.no}"></td>
+				<td th:text="${dto.content}"></td>
+				<td th:if="${today eq dto.createdDate.toLocalDate()}" 
+				th:text="${#temporals.format(dto.createdDate, 'HH:mm')}"></td>
+				<td th:unless="${today eq dto.createdDate.toLocalDate()}" 
+				th:text="${#temporals.format(dto.createdDate, 'yyyy/MM/dd')}"></td>
+				<td><button>삭제</button></td>
 			</tr>
 		</table>
 	</div>
