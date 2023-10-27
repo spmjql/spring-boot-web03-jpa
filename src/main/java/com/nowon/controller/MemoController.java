@@ -3,7 +3,9 @@ package com.nowon.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.nowon.service.MemoService;
@@ -30,6 +32,11 @@ public class MemoController {
 	@PostMapping ("/memo")
 	public String memoSave(String memoContent) {
 		service.memoSave(memoContent);
+		return "redirect:/memo";
+	}
+	@DeleteMapping("/memo/{no}")
+	public String memoDelete(@PathVariable long no) {
+		service.memoDel(no);
 		return "redirect:/memo";
 	}
 }

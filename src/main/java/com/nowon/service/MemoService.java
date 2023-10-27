@@ -10,4 +10,6 @@ public interface MemoService {
 
 	void memoFindAll(Model model);
 
+	void memoDel(long no);
+
 }

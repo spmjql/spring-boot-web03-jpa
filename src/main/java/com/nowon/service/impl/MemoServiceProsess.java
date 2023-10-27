@@ -33,5 +33,11 @@ public class MemoServiceProsess implements MemoService {
 		model.addAttribute("today",LocalDate.now());
 	}
 
+	@Override
+	public void memoDel(long no) {
+		memoR.delete(memoR.findById(no).orElseThrow());
+//		memoR.deleteById(no);
+	}
+
 
 }
